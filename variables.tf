@@ -101,6 +101,7 @@ variable "LB" {
             TYPE = string # "application", "network"
             INTERNAL = bool
             SNs = list(string)
+            CROSS_ZONE_LB = optional(bool)
             DELETE_PROTECTION = optional(bool)
             SGs = optional(list(string)) # "application"
             SNs_MAP = optional(list(object({

@@ -146,6 +146,7 @@ resource "aws_lb" "LB" {
     load_balancer_type = var.LB[count.index].TYPE
     internal           = var.LB[count.index].INTERNAL
     subnets            = var.LB[count.index].SNs
+    enable_cross_zone_load_balancing = try(var.LB[count.index].CROSS_ZONE_LB, true)
     enable_deletion_protection = try(var.LB[count.index].DELETE_PROTECTION, true)
     security_groups    = try(var.LB[count.index].SGs, null)
 
